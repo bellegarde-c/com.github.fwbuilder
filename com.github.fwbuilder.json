@@ -1,5 +1,5 @@
 {
-    "id": "org.github.fwbuilder",
+    "id": "com.github.fwbuilder",
     "runtime": "org.kde.Platform",
     "runtime-version": "5.14",
     "sdk": "org.kde.Sdk",
@@ -31,6 +31,10 @@
                     "type": "git",
                     "commit": "a5e14a966447c63bcf7b52a0202149e76bd5ed4a",
                     "url": "https://github.com/fwbuilder/fwbuilder"
+                },
+                {
+                    "type": "patch",
+                    "path": "data-app-id.patch"
                 }
             ]
         }
