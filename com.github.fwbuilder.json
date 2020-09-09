@@ -1,7 +1,7 @@
 {
     "id": "com.github.fwbuilder",
     "runtime": "org.kde.Platform",
-    "runtime-version": "5.15",
+    "runtime-version": "5.14",
     "sdk": "org.kde.Sdk",
     "command": "fwbuilder",
     "rename-icon": "fwbuilder.png",
