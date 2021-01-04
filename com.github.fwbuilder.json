@@ -25,11 +25,15 @@
     "modules": [
         {
             "name": "net-snmp",
+            "buildsystem": "autotools",
             "builddir": true,
+            "build-options": {
+                "ldflags": "-lncurses -ltinfo"
+            },
             "sources": [
                 {
                     "type": "git",
-                    "commit": "c4d46f9f7b5b32bf1d6b61d09bdabaae4ff3cd7a",
+                    "commit": "9e933893751fb5b1b68c6efb844ef5d4b3a905e0",
                     "url": "https://github.com/net-snmp/net-snmp"
                 }
             ]
@@ -38,6 +42,9 @@
             "name": "fwbuilder",
             "buildsystem": "cmake-ninja",
             "builddir": true,
+            "config-opts": [
+                "NETSNMP_INCLUDE_DIR=/app/lib"
+            ],
             "sources": [
                 {
                     "type": "git",
