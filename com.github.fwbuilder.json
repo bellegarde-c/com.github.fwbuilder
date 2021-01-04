@@ -42,9 +42,11 @@
             "name": "fwbuilder",
             "buildsystem": "cmake-ninja",
             "builddir": true,
-            "config-opts": [
-                "NETSNMP_INCLUDE_DIR=/app/lib"
-            ],
+            "build-options": {
+                "env": {
+                "NETSNMP_INCLUDE_DIR": "/app/lib"
+                }
+            },
             "sources": [
                 {
                     "type": "git",
