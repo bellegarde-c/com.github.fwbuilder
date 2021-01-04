@@ -6,8 +6,12 @@ RUN apt -y update
 
 RUN apt -y install \
            flatpak \
-           flatpak-builder
+           flatpak-builder && \
+    rm -rf /var/cache/apt/archives/*
 
 RUN flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-RUN flatpak install --assumeyes org.kde.Platform/x86_64/5.14 \
-                                org.kde.Sdk/x86_64/5.14
+
+COPY docker-entrypoint.sh /docker-entrypoint.sh
+RUN chmod +x /docker-entrypoint.sh
+
+ENTRYPOINT ["/docker-entrypoint.sh"]
