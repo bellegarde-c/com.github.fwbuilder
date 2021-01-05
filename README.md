@@ -1,2 +1,5 @@
 - `docker build -t flatpak_builder .`
 - `docker run -it --rm --name flatpak_builder -v /src/com.github.fwbuilder:/build --privileged flatpak_builder:latest`
+- `flatpak remote-add --no-gpg-verify fwbuilder_repo fwbuilder_repo`
+- `flatpak install fwbuilder_repo com.github.fwbuilder`
+- `flatpak run com.github.fwbuilder`
