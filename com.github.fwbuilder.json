@@ -5,7 +5,7 @@
     "sdk": "org.kde.Sdk",
     "command": "fwbuilder",
     "rename-icon": "fwbuilder.png",
-    "rename-desktop-file": "fwbuilder.destkop",
+    "rename-desktop-file": "fwbuilder.desktop",
     "finish-args": [
         "--device=dri",
         "--filesystem=host",
