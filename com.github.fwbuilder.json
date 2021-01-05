@@ -4,11 +4,9 @@
     "runtime-version": "5.14",
     "sdk": "org.kde.Sdk",
     "command": "fwbuilder",
-    "rename-icon": "fwbuilder.png",
-    "rename-desktop-file": "fwbuilder.desktop",
     "finish-args": [
         "--device=dri",
-        "--filesystem=host",
+        "--filesystem=home",
         "--share=ipc",
         "--share=network",
         "--socket=fallback-x11",
@@ -49,7 +47,7 @@
             "sources": [
                 {
                     "type": "git",
-                    "commit": "a5e14a966447c63bcf7b52a0202149e76bd5ed4a",
+                    "commit": "ea25d1e557d45d10d4354cf1435633b5d37edf3d",
                     "url": "https://github.com/fwbuilder/fwbuilder"
                 }
             ]
