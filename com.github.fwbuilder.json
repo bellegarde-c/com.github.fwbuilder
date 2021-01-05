@@ -7,12 +7,13 @@
     "rename-icon": "fwbuilder.png",
     "rename-desktop-file": "fwbuilder.destkop",
     "finish-args": [
-        "--share=ipc",
-        "--socket=x11",
-        "--socket=wayland",
-        "--filesystem=host",
         "--device=dri",
-        "--socket=pulseaudio"
+        "--filesystem=host",
+        "--share=ipc",
+        "--share=network",
+        "--socket=fallback-x11",
+        "--socket=wayland",
+        "--socket=x11"
     ],
     "cleanup": [
         "/include",
@@ -42,11 +43,9 @@
             "name": "fwbuilder",
             "buildsystem": "cmake-ninja",
             "builddir": true,
-            "build-options": {
-                "env": {
-                "NETSNMP_INCLUDE_DIR": "/app/lib"
-                }
-            },
+            "config-opts": [
+                "-DNETSNMP_INCLUDE_DIR=/app/include"
+	        ],
             "sources": [
                 {
                     "type": "git",
