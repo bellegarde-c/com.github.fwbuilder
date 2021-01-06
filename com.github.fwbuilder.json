@@ -4,6 +4,8 @@
     "runtime-version": "5.14",
     "sdk": "org.kde.Sdk",
     "command": "fwbuilder",
+    "rename-icon": "fwbuilder",
+    "rename-desktop-file": "fwbuilder.desktop",
     "finish-args": [
         "--device=dri",
         "--filesystem=home",
