@@ -8,4 +8,4 @@ flatpak install --assumeyes org.kde.Platform/x86_64/5.14 \
 cd /build
 
 # build with local repo folder to be later used for installation
-flatpak-builder --repo=fwbuilder_repo fwbuilder_build --force-clean com.github.fwbuilder.json
+flatpak-builder --repo=fwbuilder_repo fwbuilder_build --force-clean com.github.fwbuilder.yaml

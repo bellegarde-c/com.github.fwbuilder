@@ -1,5 +1,7 @@
-Create Flatpak repository for Firewall Builder
+Flatpak repository for Firewall Builder
 ==============================================
+
+Create a Flatpak repository for Firewall Builder https://github.com/fwbuilder/fwbuilder. Usage of container is not necessary but provides clean flatpak-builder environment.
 
 First clone repository:
 
