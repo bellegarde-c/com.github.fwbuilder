@@ -17,7 +17,7 @@ Build container as clean flatpak-builder environment:
 
 Run flatpak-builder inside privileged container - don't forget to replace volume source to you cloned git repo:
 
-`docker run -it --rm -v /<whatever_directory_you_cloned_git_repository_in>/com.github.fwbuilder:/build --privileged flatpak_builder:latest`
+`docker run -it --rm -v $PWD/com.github.fwbuilder:/build --privileged flatpak_builder:latest`
 
 Add freshly built local flatpak repository:
 
