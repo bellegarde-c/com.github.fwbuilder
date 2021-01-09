@@ -1,0 +1,42 @@
+id: com.github.fwbuilder
+runtime: org.kde.Platform
+runtime-version: '5.14'
+sdk: org.kde.Sdk
+rename-desktop-file: fwbuilder.desktop
+rename-icon: fwbuilder
+command: fwbuilder
+cleanup:
+- /include
+- /lib/pkgconfig
+- /share/doc
+- /share/man
+- '*.a'
+- '*.la'
+finish-args:
+- --device=dri
+- --filesystem=home
+- --share=ipc
+- --share=network
+- --socket=fallback-x11
+- --socket=wayland
+- --socket=x11
+modules:
+- build-options:
+    ldflags: -lncurses -ltinfo
+  builddir: true
+  buildsystem: autotools
+  name: net-snmp
+  sources:
+  - commit: 9e933893751fb5b1b68c6efb844ef5d4b3a905e0
+    type: git
+    url: https://github.com/net-snmp/net-snmp
+- builddir: true
+  buildsystem: cmake-ninja
+  config-opts:
+  - -DNETSNMP_INCLUDE_DIR=/app/include
+  name: fwbuilder
+  sources:
+  - commit: ea25d1e557d45d10d4354cf1435633b5d37edf3d
+    type: git
+    url: https://github.com/fwbuilder/fwbuilder
+
