@@ -1,50 +1,56 @@
 {
-    "id": "com.github.fwbuilder",
-    "runtime": "org.kde.Platform",
-    "runtime-version": "5.14",
-    "sdk": "org.kde.Sdk",
-    "command": "fwbuilder",
-    "rename-icon": "fwbuilder.png",
-    "rename-desktop-file": "fwbuilder.destkop",
-    "finish-args": [
-        "--share=ipc",
-        "--socket=x11",
-        "--socket=wayland",
-        "--filesystem=host",
-        "--device=dri",
-        "--socket=pulseaudio"
-    ],
-    "cleanup": [
-        "/include",
-        "/lib/pkgconfig",
-        "/share/doc",
-        "/share/man",
-        "*.a",
-        "*.la"
-    ],
-    "modules": [
+  "id": "com.github.fwbuilder",
+  "runtime": "org.kde.Platform",
+  "runtime-version": "5.15-21.08",
+  "sdk": "org.kde.Sdk",
+  "rename-desktop-file": "fwbuilder.desktop",
+  "rename-icon": "fwbuilder",
+  "command": "fwbuilder",
+  "cleanup": [
+    "/include",
+    "/lib/pkgconfig",
+    "/share/doc",
+    "/share/man",
+    "*.a",
+    "*.la"
+  ],
+  "finish-args": [
+    "--device=dri",
+    "--filesystem=home",
+    "--share=ipc",
+    "--share=network",
+    "--socket=fallback-x11",
+    "--socket=wayland",
+    "--socket=x11"
+  ],
+  "modules": [
+    {
+      "build-options": {
+        "ldflags": "-lncurses -ltinfo"
+      },
+      "builddir": true,
+      "buildsystem": "autotools",
+      "name": "net-snmp",
+      "sources": [
         {
-            "name": "net-snmp",
-            "builddir": true,
-            "sources": [
-                {
-                    "type": "git",
-                    "commit": "c4d46f9f7b5b32bf1d6b61d09bdabaae4ff3cd7a",
-                    "url": "https://github.com/net-snmp/net-snmp"
-                }
-            ]
-        },
-        {
-            "name": "fwbuilder",
-            "buildsystem": "cmake-ninja",
-            "builddir": true,
-            "sources": [
-                {
-                    "type": "git",
-                    "commit": "a5e14a966447c63bcf7b52a0202149e76bd5ed4a",
-                    "url": "https://github.com/fwbuilder/fwbuilder"
-                }
-            ]
+          "type": "git",
+          "url": "https://github.com/net-snmp/net-snmp"
         }
-    ]
+      ]
+    },
+    {
+      "builddir": true,
+      "buildsystem": "cmake-ninja",
+      "config-opts": [
+        "-DNETSNMP_INCLUDE_DIR=/app/include"
+      ],
+      "name": "fwbuilder",
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://github.com/bellegarde-c/fwbuilder"
+        }
+      ]
+    }
+  ]
 }
